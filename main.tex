@@ -1,0 +1,165 @@
+\documentclass{llncs}  
+%\documentclass[runningheads]{llncs}
+
+\usepackage{graphicx} 
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage{array,tabularx}
+\usepackage{booktabs} 
+\usepackage{makeidx}  % allows for index generation
+\usepackage{xparse}
+\usepackage{moredefs}
+\usepackage{lips}
+\usepackage{epstopdf} 
+% \usepackage{minted}
+\usepackage{color}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nolist,nohyperlinks]{acronym}
+\usepackage{comment}
+\usepackage{paralist}
+\usepackage{cleveref}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage[super]{nth}
+
+% ------------------
+% | WI Adjustments |
+% ------------------
+
+% \setlength{\parindent}{0pt} % disable indent globally
+
+\usepackage{float}
+% Make table captions above the table
+\floatstyle{plaintop}
+\restylefloat{table}
+
+%fix captions of figures
+\usepackage[style=base,labelfont=bf,labelsep=period,tableposition=top,font=small]{caption}
+\captionsetup[figure]{name=Figure}
+\setlength{\parskip}{0pt} % no parskip, only parindent
+\setlength{\textfloatsep}{18pt plus 0pt minus 18pt} %abstand von text und figure/caption
+\setlength{\floatsep}{12pt plus 0pt minus 0pt} %abstand zwischen floats
+\setlength{\intextsep}{18pt plus 0pt minus 18pt} %abstand zwischen text und anderen arten von figures
+
+\makeatletter
+\renewcommand\@biblabel[1]{#1.}
+\makeatother
+\addto\captionsenglish{\renewcommand{\bibname}{\leftline{References}}}
+
+% \let\oldbibliography\bibliography% Store \bibliography in \oldbibliography
+% \renewcommand{\bibliography}[1]{{%
+%  \let\chapter\section% Copy \section over \chapter
+%  \oldbibliography{#1}}}% Old \bibliography
+
+% WI footer
+\usepackage{fancyhdr}
+\fancypagestyle{WI_footer}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[L]{\color{black}\scriptsize 17th International Conference on Wirtschaftsinformatik\\February 2022, Nürnberg, Germany}}
+
+
+\usepackage[sort,square,comma,numbers]{natbib}
+
+% -----------
+% | Custom  |
+% -----------
+\newcommand{\ks}[1]{\hangindent=0.5cm \textbf{#1}}
+\crefformat{footnote}{#2\footnotemark[#1]#3}
+% --------------------------
+% | Hyphenation in URL env |
+% --------------------------
+%\usepackage[hyphens]{url}
+%\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+  \do\Y\do\Z}
+
+% ----------------
+% | Hyphenation  |
+% ----------------
+\hyphenation{sus-tain-able}
+% ------------------
+% | Custom colors  |
+% ------------------
+% \definecolor{LightGray}{gray}{0.9}
+% \definecolor{crowdstrom}{RGB}{46, 170, 225}
+% \definecolor{mygreen}{rgb}{0,0.6,0}
+% \definecolor{mygray}{rgb}{0.5,0.5,0.5}
+% \definecolor{mymauve}{rgb}{0.58,0,0.82}
+% \definecolor{mygray}{gray}{0.85}
+% \definecolor{mycyan}{rgb}{0.88,1,1}
+% \DeclareCaptionFont{white}{\color{white}}
+% MaMa Some Useful Column Definitions
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}   % linksbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}     % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}    % rechtsbündig mit Breitenangabe
+
+% -------------
+% | Variables |
+% -------------
+%\crefformat{footnote}{#2\footnotemark[#1]#3}
+
+% ---------------------------
+% | Title page and authors  |
+% ---------------------------
+\begin{document}
+\frontmatter          % for the preliminaries
+%\pagestyle{headings}  % switches on printing of running heads
+
+\mainmatter              % start of the contributions
+
+
+\title{Author Guidelines for the Preparation of Contributions to WI 2022}
+
+%\author{Blinded\inst{1}}
+%\authorrunning{Blinded et al.} % abbreviated author list (for running head)
+%\institute{Blinded}
+
+\author{First Author\inst{1} \and
+Second Author\inst{1} \and
+Third Author\inst{1,2} \and
+Forth Author\inst{2}}
+
+\institute{Institution, Department, City, Country\\
+\email{\{first.author,second.author,third.author\}@example.com} \and
+Other Institution, Other Department, Other City, Other Country\\
+\email{\{third.author,fourth.author}@anotherexample.com\}}
+
+% -----------------------
+% |  Begin of Document  |
+% -----------------------
+\maketitle
+\setcounter{footnote}{0}
+
+% ------------- 
+% |  Abstract and Keywords  |
+% -------------
+\input{00_abstract.tex}
+\thispagestyle{WI_footer}
+
+% ------------- 
+% |  Content  |
+% -------------
+\input{01_introduction.tex}
+\input{02_preparation.tex}
+\input{03_acknowledgements.tex}
+
+% ----------------
+% | Bibliography |
+% ----------------
+
+\bibliographystyle{splncs04}
+\bibliography{./literature.bib}
+% ---------------------
+% |  End of Document  |
+% ---------------------
+
+\end{document}
